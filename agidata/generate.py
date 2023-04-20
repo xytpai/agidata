@@ -11,8 +11,8 @@ def process_text(text: str):
     return out
 
 
-def gen_question_answer(name: str, datas: list):
-    print('gen_question_answer ' + name)
+def gen_question_answer(fname: str, datas: list):
+    print('gen_question_answer ' + fname)
     pbar = tqdm(total=len(datas))
     lines = []
     for data in datas:
@@ -24,4 +24,6 @@ def gen_question_answer(name: str, datas: list):
     random.shuffle(lines)
     lines = ''.join(lines)
     pbar.close()
-    return lines
+    with open(fname, 'w') as f:
+        f.write(lines)
+    return
