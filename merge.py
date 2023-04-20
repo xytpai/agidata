@@ -3,6 +3,7 @@ import sys
 import re
 import random
 import subprocess
+import argparse
 from itertools import combinations
 
 
@@ -23,9 +24,9 @@ def is_line_valid(line):
     return new_line == line
 
 
-def get_grouped_files(ends='.txtl', size_mb=4*1024):
+def get_grouped_files(args, ends='.txtl', size_mb=4*1024):
     files = []
-    for path, dir_list, file_list in os.walk('./'):
+    for path, dir_list, file_list in os.walk(args.dir):
         for file in file_list:
             if file.endswith(ends) and 'merges' not in path:
                 fname = os.path.join(path, file)
@@ -115,8 +116,11 @@ if __name__ == '__main__':
         pass
     else:
         sys.exit(1)
+    parser = argparse.ArgumentParser(description='datasets/merge.py')
+    parser.add_argument('--dir', type=str, required=True)
+    args = parser.parse_args()
     subprocess.check_call(['rm -rf ./merges'], shell=True)
-    file_groups = get_grouped_files()
+    file_groups = get_grouped_files(args)
     out_files, total_lines = write_out_file_groups(file_groups)
     shuffle_output_files(out_files)
     verify(out_files, total_lines)
