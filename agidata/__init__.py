@@ -1,4 +1,4 @@
-from .cut import process_text
+from .generate import process_text, gen_question_answer
 
 
-__all__ = ['process_text']
+__all__ = ['process_text', 'gen_question_answer']
