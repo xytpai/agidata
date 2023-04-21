@@ -110,14 +110,14 @@ def verify(out_files, ref_total_lines):
     print('ok')
 
 
-if __name__ == '__main__':
+def main():
     c = input('Ready to merge? [y/n]:')
     if c == 'y' or c == 'Y':
         pass
     else:
         sys.exit(1)
     parser = argparse.ArgumentParser(description='datasets/merge.py')
-    parser.add_argument('--dir', type=str, required=True)
+    parser.add_argument('--dir', type=str, default='./')
     args = parser.parse_args()
     subprocess.check_call(['rm -rf ./merges'], shell=True)
     file_groups = get_grouped_files(args)

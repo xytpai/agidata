@@ -9,4 +9,5 @@ setup(
     version='0.0.0',
     packages=['agidata'],
     include_package_data=True,
+    entry_points={'console_scripts': ['agimerge=agidata.merge:main']},
 )
