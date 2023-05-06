@@ -31,6 +31,7 @@ def gen_question_answer(fname: str, datas: list, parallel=False):
             line = '[BOS0] ' + q + ' [EOS] [BOS1] ' + a + ' [EOS]\n'
             return line
         p = ThreadPool(32)
+        print('parallel gen ...')
         lines = p.map(gen, datas)
     random.shuffle(lines)
     lines = ''.join(lines)
