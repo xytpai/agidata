@@ -1,0 +1,24 @@
+{
+    "general_qa": {
+        "count": 9,
+        "files": [
+            [
+                "/data/agidata/tests/s2.agidata",
+                9
+            ]
+        ]
+    },
+    "math_qa": {
+        "count": 6,
+        "files": [
+            [
+                "/data/agidata/tests/s1.agidata",
+                2
+            ],
+            [
+                "/data/agidata/tests/s0.agidata",
+                4
+            ]
+        ]
+    }
+}

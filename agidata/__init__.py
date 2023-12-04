@@ -1,4 +1,8 @@
-from .generate import process_text, gen_question_answer
+from .generate import gen_question_answer
+from .dataset import SerializedTextDataset
 
 
-__all__ = ['process_text', 'gen_question_answer']
+__all__ = [
+    'gen_question_answer',
+    'SerializedTextDataset'
+]
